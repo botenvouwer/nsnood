@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using nsnood.model;
@@ -13,6 +15,7 @@ namespace nsnood.Controllers
 {
     [Route("api/")]
     [ApiController]
+    [EnableCors(policyName: "*")]
     public class NotificationController : ControllerBase
     {
         
@@ -105,7 +108,7 @@ namespace nsnood.Controllers
         
 
 
-
+        
         [HttpPost("komtmeldingaan")]
         public ActionResult<string> KomtMeldingAan([FromBody] Notification notification)
         {
