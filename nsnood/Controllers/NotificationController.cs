@@ -43,15 +43,15 @@ namespace nsnood.Controllers
                     }
                     else
                     {
-                        return NotFound();
+                        return NotFound(new {});
                     }
                 }
                 catch (Exception e)
                 {
-                    return NotFound();
+                    return NotFound(new {});
                 }
             }
-            return this.BadRequest();
+            return this.BadRequest(new {});
         }
 
         [Route("notificaties/treinstel/{id}")]
@@ -72,13 +72,13 @@ namespace nsnood.Controllers
                 }
                 else
                 {
-                    return NotFound();
+                    return NotFound(new List<object>() {});
                 }
                 
             }
             catch (Exception)
             {
-                return NotFound();
+                return NotFound(new List<object>() {});
             }
             return BadRequest();
         }
@@ -97,7 +97,7 @@ namespace nsnood.Controllers
             }
             catch (Exception e)
             {
-                return NotFound();
+                return NotFound(new List<object>() {});
             }
             return BadRequest();
         }
