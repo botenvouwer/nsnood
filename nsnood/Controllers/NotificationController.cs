@@ -22,13 +22,13 @@ namespace nsnood.Controllers
             _notificationRepo = notificationRepo;
         }
 
-        [Route("notificaties")]
+        [Route("meldingen")]
         public IEnumerable<Notification> Index()
         {
             return this._notificationRepo.All();
         }
 
-        [Route("notificaties/id/{id}", Order = int.MaxValue)]
+        [Route("meldingen/id/{id}", Order = int.MaxValue)]
         public ActionResult GetNotification(string id)
         {
             if (Guid.TryParse(id, out Guid guid))
@@ -54,7 +54,7 @@ namespace nsnood.Controllers
             return this.BadRequest(new {});
         }
 
-        [Route("notificaties/treinstel/{id}")]
+        [Route("meldingen/treinstel/{id}")]
         public ActionResult GetNotificationsByMaterial(int id)
         {
             if (id < 0)
